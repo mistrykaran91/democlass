@@ -1,0 +1,8 @@
+{
+  "name": "classtrix-app",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

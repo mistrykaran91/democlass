@@ -1,0 +1,10 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <app-menu
+      *ngIf="(authService.userIsAuthenticated | async) === true"></app-menu>
+
+    <!-- [class.selected]="selectedIndex == i" -->
+    <!-- (click)="selectedIndex = i" -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

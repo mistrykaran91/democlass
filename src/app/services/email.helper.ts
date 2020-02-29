@@ -1,0 +1,3 @@
+export const sendEmail = (email: string) => {
+  // Email Sending code ...
+};
