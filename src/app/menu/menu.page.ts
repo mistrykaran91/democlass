@@ -12,32 +12,32 @@ export class MenuPage implements OnInit {
       menus: [
         {
           title: 'My Courses',
-          url: '/folder/Inbox',
+          url: '/course',
           icon: 'book'
         },
         {
           title: 'Examinations',
-          url: '/folder/Inbox',
+          url: '/examination',
           icon: 'document-text'
         },
         {
           title: 'Schedule',
-          url: '/folder/Inbox',
+          url: '/schedule',
           icon: 'time'
         },
         {
           title: 'Assignments',
-          url: '/folder/Inbox',
+          url: '/assignment',
           icon: 'hourglass'
         },
         {
           title: 'Attendance',
-          url: '/folder/Inbox',
+          url: '/attendance',
           icon: 'battery-full'
         },
         {
           title: 'Notifications',
-          url: '/folder/Inbox',
+          url: '/notification',
           icon: 'notifications'
         }
       ]
@@ -47,22 +47,22 @@ export class MenuPage implements OnInit {
       menus: [
         {
           title: 'My Profile',
-          url: '/folder/Inbox',
+          url: '/profile',
           icon: 'person-circle'
         },
         {
           title: 'Billing',
-          url: '/folder/Inbox',
+          url: '/billing',
           icon: 'card'
         },
         {
           title: 'Change Password',
-          url: '/folder/Inbox',
+          url: '/folder/ChangePassword',
           icon: 'key'
         },
         {
           title: 'Logout',
-          url: '/folder/Inbox',
+          url: '/folder/Logout',
           icon: 'log-out'
         }
       ]

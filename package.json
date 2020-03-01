@@ -7,6 +7,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "ion-build": "ionic cordova build android",
+    "ion-build-prod": "ionic cordova build android --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

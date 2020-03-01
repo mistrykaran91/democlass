@@ -42,7 +42,7 @@ export class AuthPage implements OnInit {
             console.log(resData);
             this.isLoading = false;
             loadingEl.dismiss();
-            this.router.navigateByUrl('/folder/Inbox');
+            this.router.navigateByUrl('/dashboard');
           },
           errRes => {
             loadingEl.dismiss();
