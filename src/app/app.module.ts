@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuPage } from './menu/menu.page';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AppData } from './app-data';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -18,7 +20,8 @@ import { MenuPage } from './menu/menu.page';
     BrowserModule,
     IonicModule.forRoot(),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(AppData, { delay: 2000 })
   ],
   providers: [
     StatusBar,

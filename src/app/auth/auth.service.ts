@@ -63,8 +63,7 @@ export class AuthService {
 
   autoLogin() {
     return from(Plugins.Storage.get({ key: 'authData' })).pipe(
-      map(storedData => {
-        debugger;
+      map(storedData => {        
         if (!storedData || !storedData.value) {
           return null;
         }
@@ -88,8 +87,7 @@ export class AuthService {
         );
         return user;
       }),
-      tap(user => {
-        debugger;
+      tap(user => {        
         if (user) {
           this._user.next(user);
           // this.autoLogout(user.tokenDuration);
@@ -120,7 +118,6 @@ export class AuthService {
   }
 
   private setUserData(userData: AuthResponseData) {
-    debugger;
     const expirationTime = new Date(
       new Date().getTime() + +userData.expiresIn * 1000
     );
@@ -146,7 +143,6 @@ export class AuthService {
     tokenExpirationDate: string,
     email: string
   ) {
-    debugger;
     const data = JSON.stringify({
       userId: userId,
       token: token,
