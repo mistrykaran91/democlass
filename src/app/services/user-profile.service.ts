@@ -4,6 +4,7 @@ import { UserProfile } from '../interfaces/user-profile.interface';
 import { map, tap, catchError, switchMap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, throwError, Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class UserProfileService {
   private userProfileUrl = 'api/userProfiles';
   private reloadUserProfileSubject = new BehaviorSubject(null);
 
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   userProfile$ = combineLatest([
@@ -19,10 +22,14 @@ export class UserProfileService {
     this.reloadUserProfileSubject.asObservable()
   ]).pipe(
     switchMap(selectedUser =>
-      this.http.get<UserProfile>(`${this.userProfileUrl}/${selectedUser}`).pipe(
-        map(user => (user ? user : this.initializeUserProfile())),
-        catchError(this.handleError)
-      )
+      this.http
+        .get<UserProfile>(`${this.userProfileUrl}/${selectedUser}`, {
+          headers: this.headers
+        })
+        .pipe(
+          map(user => (user ? user : this.initializeUserProfile())),
+          catchError(this.handleError)
+        )
     )
   );
 

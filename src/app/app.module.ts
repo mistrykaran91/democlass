@@ -8,10 +8,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MenuPage } from './menu/menu.page';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppData } from './app-data';
+import { HttpConfigInterceptor } from './services/http-config.interceptor';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -26,7 +27,8 @@ import { AppData } from './app-data';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

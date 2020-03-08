@@ -5,6 +5,7 @@ import {
 } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { DELETE_CONFIRM } from '../app.constant';
+import { LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class MessageService {
   constructor(
     private alertController: AlertController,
     private toastController: ToastController,
-    private popoverController: PopoverController
+    private popoverController: PopoverController,
+    private loadingController: LoadingController
   ) {}
 
   async errorToast(message: string) {
@@ -25,6 +27,19 @@ export class MessageService {
     });
 
     toast.present();
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...'
+    });
+
+    return loading.present();
+  }
+
+  async dismissLoader() {
+    const loader = await this.loadingController.getTop();
+    return loader && loader.dismiss();
   }
 
   async successToast(message: string) {

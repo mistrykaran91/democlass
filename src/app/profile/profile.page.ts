@@ -26,9 +26,16 @@ export class ProfilePage {
   ) {}
 
   ionViewWillEnter() {
+    this.getUserProfile();
+  }
+
+  getUserProfile(event?: any) {
     this.userProfileService.userProfile$.subscribe(userProfile => {
       this.userProfile = userProfile;
       this.userProfileTitle = `${userProfile.firstName} ${userProfile.lastName}`;
+      if (event) {
+        event.target.complete();
+      }
     });
   }
 
