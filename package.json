@@ -9,6 +9,7 @@
     "build": "ng build",
     "ion-build": "ionic cordova build android",
     "ion-build-prod": "ionic cordova build android --prod",
+    "ion-build-prod-release": "ionic cordova build android --prod --release",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

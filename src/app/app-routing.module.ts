@@ -47,6 +47,12 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'subject',
+    loadChildren: () =>
+      import('./subject/subject.module').then(m => m.SubjectPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'examination',
     loadChildren: () =>
       import('./examination/examination.module').then(
