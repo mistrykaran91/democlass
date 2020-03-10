@@ -17,7 +17,7 @@
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2">
         <ion-list>
-          <ion-item-sliding *ngFor="let subject of subjects" #slidingItem>
+          <ion-item-sliding *ngFor="let subject of subjects$ | async " #slidingItem>
             <app-subject-detail [subject]="subject"></app-subject-detail>
             <ion-item-options side="end">
               <ion-item-option
@@ -25,9 +25,17 @@
                 (click)="onEdit(subject.id, slidingItem)">
                 <ion-icon name="create" slot="icon-only"></ion-icon>
               </ion-item-option>
+
+              <ion-item-option
+                color="medium"
+                (click)="onDelete(subject.id, slidingItem)">
+                <ion-icon name="trash" slot="icon-only"></ion-icon>
+              </ion-item-option>
             </ion-item-options>
           </ion-item-sliding>
         </ion-list>
+
+         <app-subject-skeleton-detail *ngIf="(subjects$ | async) === null" ></app-subject-skeleton-detail> 
       </ion-col>
     </ion-row>
   </ion-grid>

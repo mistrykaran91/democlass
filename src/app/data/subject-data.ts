@@ -32,8 +32,36 @@ export class SubjectData {
     },
     {
       id: 5,
+      name: 'Maths',
+      code: 'MATH',
+      description: 'Description',
+      avatar: null
+    },
+    {
+      id: 6,
       name: 'Computer Science',
       code: 'CS',
+      description: 'Description',
+      avatar: null
+    },
+    {
+      id: 7,
+      name: 'English',
+      code: 'ENG',
+      description: 'Description',
+      avatar: null
+    },
+    {
+      id: 7,
+      name: 'Hindi',
+      code: 'HIN',
+      description: 'Description',
+      avatar: null
+    },
+    {
+      id: 8,
+      name: 'Marathi',
+      code: 'MAR',
       description: 'Description',
       avatar: null
     }

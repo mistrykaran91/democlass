@@ -1,11 +1,16 @@
 <ion-item>
   <ion-thumbnail slot="start">
     <!-- <ion-img [src]="subject.avatar"></ion-img> -->
-
     <ion-img src="../../../assets/images/subject.jpg"></ion-img>
   </ion-thumbnail>
   <ion-label class="ion-justify-content-start">
-    <h1>{{ subject.name }}</h1>
-    <ion-text color="medium">{{ subject.description }}</ion-text>
+    <h2>{{ subject.name }}</h2>
+    <p>
+      {{ subject.description }}
+    </p>
+    <p style="display: flex; flex-direction:row">
+      <ion-note slot="start" style="flex: auto;">{{ subject.code }}</ion-note>
+      <ion-note slot="end"  style="cursor:pointer;" color="primary">More Info...</ion-note>
+    </p>
   </ion-label>
 </ion-item>
