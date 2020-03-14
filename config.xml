@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Classtrix</name>
-    <description>Manage your Institute and boost your brand with Classtrix.</description>
-    <author email="mistrykaran91@gmail.com" href="https://classtrix.com/">Classtrix Team</author>
+    <name>Democlass</name>
+    <description>Manage your Institute and boost your brand with democlass.</description>
+    <author email="mistrykaran91@gmail.com" href="https://democlass.com/">Democlass Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
