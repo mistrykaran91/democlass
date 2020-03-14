@@ -1,1 +1,1 @@
-// export * from './user-profile.reducer';
+export * from './user-profile.reducer';

@@ -1,0 +1,191 @@
+<form *ngIf="userProfileForm" [formGroup]="userProfileForm">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              {{ userProfileTitle }}
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-img src="../../assets/images/user.jpg"></ion-img>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">FirstName</ion-label>
+          <ion-input type="text" formControlName="firstName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">LastName</ion-label>
+          <ion-input type="text" formControlName="lastName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" email formControlName="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Gender</ion-label>
+          <ion-select formControlName="gender">
+            <ion-select-option [value]="Gender.Male"
+              >{{ Gender.Male }}</ion-select-option
+            >
+            <ion-select-option [value]="Gender.Female"
+              >{{ Gender.Female }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-label position="floating">Mobile</ion-label>
+          <ion-input type="text" formControlName="mobile"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-item>
+          <ion-button
+            fill="clear"
+            color="primary"
+            (click)="showInformationToggle()"
+          >
+            {{ showInformationText }}
+            <ion-icon slot="end" [name]="showInformationIcon"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ng-container *ngIf="showInformation">
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Profile Description</ion-label>
+            <ion-textarea formControlName="profileDescription"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Date Of Birth</ion-label>
+            <ion-datetime formControlName="dob"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Branch</ion-label>
+
+            <ion-select formControlName="branchId">
+              <ion-select-option [value]="0"
+                >Head Office (HO)</ion-select-option
+              >
+              <ion-select-option [value]="1">Borivali</ion-select-option>
+              <ion-select-option [value]="2">Andheri</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Staff Role</ion-label>
+
+            <ion-select formControlName="roleId">
+              <ion-select-option [value]="1">Admin</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row formGroupName="contactDetails">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item-group>
+            <ion-label>Contact Details</ion-label>
+          </ion-item-group>
+
+          <ion-item>
+            <ion-label position="floating">Address Line 1</ion-label>
+            <ion-input type="text" formControlName="addressLine1"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Address Line 2</ion-label>
+            <ion-input type="text" formControlName="addressLine2"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Landmark</ion-label>
+            <ion-input type="text" formControlName="landmark"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">City</ion-label>
+            <ion-input type="text" formControlName="city"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">State</ion-label>
+
+            <ion-select formControlName="state">
+              <ion-select-option value="MAH">Maharastra</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Country</ion-label>
+            <ion-select formControlName="country">
+              <ion-select-option value="India">India</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Pincode</ion-label>
+            <ion-input type="text" formControlName="pincode"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</form>

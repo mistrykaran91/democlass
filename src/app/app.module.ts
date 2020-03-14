@@ -13,6 +13,10 @@ import { MenuPage } from './menu/menu.page';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppData } from './app-data';
 import { HttpConfigInterceptor } from './services/http-config.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { UserProfileEffects } from './effects/user-profile.effect';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -22,7 +26,9 @@ import { HttpConfigInterceptor } from './services/http-config.interceptor';
     IonicModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(AppData, { delay: 2000 })
+    InMemoryWebApiModule.forRoot(AppData, { delay: 2000 }),
+    StoreModule.forRoot(reducer),
+    EffectsModule.forRoot([UserProfileEffects])
   ],
   providers: [
     StatusBar,

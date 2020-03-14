@@ -1,67 +1,71 @@
-import { Component } from '@angular/core';
-import { UserProfileService } from '../services/user-profile.service';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { UserProfile } from '../interfaces/user-profile.interface';
-import { Gender } from '../enums/gender.enum';
-import { MessageService } from '../services/message.service';
-import {
-  PROFILE_UPDATED_SUCCESS,
-  MORE_INFO,
-  LESS_INFO
-} from './profile.constant';
-import { NavController } from '@ionic/angular';
+
+import * as Actions from '../actions';
+import * as Reducers from '../reducers';
+import * as Selectors from '../selectors/index';
+import { Observable } from 'rxjs';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
-  styleUrls: ['./profile.page.scss']
+  styleUrls: ['./profile.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProfilePage {
-  showInformation = false;
-  userProfile: UserProfile = null;
-  Gender = Gender;
-  userProfileTitle: string;
+export class ProfilePage implements OnInit {
+  userProfileForm: FormGroup;
+
+  userProfile$: Observable<UserProfile> = this.store.select(
+    Selectors.getUserProfile
+  );
+  userProfileTitle$: Observable<string> = this.store.select(
+    Selectors.getUserProfileTitle
+  );
 
   constructor(
-    private userProfileService: UserProfileService,
-    private messageService: MessageService,
-    private navController: NavController,
+    private store: Store<Reducers.UserProfileState>,
+    private fb: FormBuilder
   ) {}
 
-  ionViewWillEnter() {
-    this.getUserProfile();
+  ngOnInit(): void {
+    this.createForm();
+    this.store.dispatch(Actions.loadUserProfile());
   }
 
-  getUserProfile(event?: any) {
-    this.userProfileService.userProfile$.subscribe(userProfile => {
-      this.userProfile = userProfile;
-      this.userProfileTitle = `${userProfile.firstName} ${userProfile.lastName}`;
-      if (event) {
-        event.target.complete();
-      }
+  createForm(): void {
+    this.userProfileForm = this.fb.group({
+      id: [''],
+      firstName: [''],
+      lastName: [''],
+      email: [''],
+      gender: [''],
+      mobile: [''],
+      profileDescription: [''],
+      dob: [''],
+      password: [''],
+      branchId: [''],
+      roleId: [''],
+      contactDetails: this.fb.group({
+        addressLine1: [''],
+        addressLine2: [''],
+        landmark: [''],
+        city: [''],
+        state: [''],
+        country: [''],
+        pincode: ['']
+      })
     });
   }
 
   save() {
-    if (this.userProfile && this.userProfile.id) {
-      this.userProfileService
-        .updateUserProfile(this.userProfile)
-        .subscribe(userProfile => {
-          this.userProfile = userProfile;
-          this.messageService.successToast(PROFILE_UPDATED_SUCCESS);
-          this.navController.back();
-        });
+    if (this.userProfileForm.invalid) {
+      return;
     }
-  }
 
-  showInformationToggle() {
-    this.showInformation = !this.showInformation;
-  }
-
-  get showInformationText() {
-    return !this.showInformation ? MORE_INFO : LESS_INFO;
-  }
-
-  get showInformationIcon() {
-    return !this.showInformation ? 'arrow-down' : 'arrow-up';
+    this.store.dispatch(
+      Actions.updateUserProfile({ userProfile: this.userProfileForm.value })
+    );
   }
 }

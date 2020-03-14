@@ -9,7 +9,8 @@
     <ion-grid>
       <ion-row>
         <ion-col text-center>
-          <ion-img src="../../assets/images/splash.png"></ion-img>
+          <!-- <ion-img src="../../assets/images/splash.png"></ion-img> -->
+          <!-- LOGO -->
         </ion-col>
       </ion-row>
 
@@ -31,9 +32,9 @@
               *ngIf="!emailCtrl.valid && emailCtrl.touched"
               lines="none"
             >
-              <ion-label>
+              <ion-text color="danger" >
                 Should be a valid email address.
-              </ion-label>
+              </ion-text>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Password</ion-label>
@@ -50,9 +51,9 @@
               *ngIf="!passwordCtrl.valid && passwordCtrl.touched"
               lines="none"
             >
-              <ion-label>
+              <ion-text color="danger">
                 Should at least be 5 characters long.
-              </ion-label>
+              </ion-text>
             </ion-item>
           </ion-list>
         </ion-col>
@@ -63,6 +64,7 @@
             type="submit"
             color="primary"
             expand="block"
+            fill="outline"
             [disabled]="!f.valid"
             >SIGN IN</ion-button
           >
@@ -71,7 +73,12 @@
 
       <ion-row class="text-center">
         <ion-col size-sm="6" offset-sm="3">
-          <a type="button" color="medium" (click)="onForgetPassword()">Forget Password ?</a>
+          <a
+            type="button"
+            color="secondary"
+            fill="outline"
+            (click)="onForgetPassword()">Forget Password ?</a
+          >
         </ion-col>
       </ion-row>
     </ion-grid>
