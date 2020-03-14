@@ -1,0 +1,15 @@
+<ion-item detail (click)="onSubjectSelected()" >
+  <ion-thumbnail slot="start">
+    <!-- <ion-img [src]="subject.avatar"></ion-img> -->
+    <ion-img src="../../../assets/images/subject.jpg"></ion-img>
+  </ion-thumbnail>
+  <ion-label class="ion-justify-content-start">
+    <h2>{{ subject.name }}</h2>
+    <p>
+      {{ subject.description }}
+    </p>
+    <p style="display: flex; flex-direction:row">
+      <ion-note slot="start" style="flex: auto;">{{ subject.code }}</ion-note>      
+    </p>
+  </ion-label>
+</ion-item>

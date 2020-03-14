@@ -7,6 +7,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SubjectSkeletonDetailComponent {
-  repeatElement = Array(7);
+  repeatElement = Array(10);
   constructor() {}
 }

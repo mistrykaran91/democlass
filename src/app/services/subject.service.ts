@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subject } from './../interfaces/subject.interface';
 import { map, catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { handleError } from '../helpers/util.helper';
+import { Subject } from '../interfaces/subject.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubjectService {
   private subjectUrl = 'api/subjects';
+  private currentSubject = new BehaviorSubject<Subject>(
+    this.initializeSubject()
+  );
+
+  currentSubject$ = this.currentSubject.asObservable();
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -29,6 +34,14 @@ export class SubjectService {
     );
   }
 
+  setCurrentSubject(subject: Subject) {
+    if (subject) {
+      this.currentSubject.next(subject);
+    } else {
+      this.currentSubject.next(this.initializeSubject());
+    }
+  }
+
   updateSubject(subject: Subject): Observable<Subject> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -40,13 +53,9 @@ export class SubjectService {
       );
   }
 
-  deleteSubject(id: number) {
+  deleteSubject(id: number): Observable<any> {
     const url = `${this.subjectUrl}/${id}`;
-
-    return this.http.delete<Subject>(`${url}`).pipe(
-      map(data => data),
-      catchError(handleError)
-    );
+    return this.http.delete<Subject>(`${url}`).pipe(catchError(handleError));
   }
 
   private initializeSubject(): Subject {

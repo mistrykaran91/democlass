@@ -53,9 +53,13 @@ export class MessageService {
     toast.present();
   }
 
-  async confirmation(yesHandler: any, cancelHandler: any = null) {
+  async confirmation(
+    message: string,
+    yesHandler: any,
+    cancelHandler: any = null
+  ) {
     const confirm = await this.alertController.create({
-      message: DELETE_CONFIRM,
+      message,
       buttons: [
         {
           text: 'Cancel',

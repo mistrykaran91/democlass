@@ -13,14 +13,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./edit-subject/edit-subject.module').then(
         m => m.EditSubjectPageModule
-      )
+      ),
+      pathMatch:'full'
   },
   {
-    path: 'new',
+    path: ':subjectId',
     loadChildren: () =>
-      import('./new-subject/new-subject.module').then(
-        m => m.NewSubjectPageModule
-      )
+      import('./subject-detail/subject-detail.module').then(
+        m => m.SubjectDetailPageModule
+      ),
+    pathMatch: 'full'
   }
 ];
 

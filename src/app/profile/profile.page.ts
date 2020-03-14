@@ -8,6 +8,7 @@ import {
   MORE_INFO,
   LESS_INFO
 } from './profile.constant';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -22,7 +23,8 @@ export class ProfilePage {
 
   constructor(
     private userProfileService: UserProfileService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private navController: NavController,
   ) {}
 
   ionViewWillEnter() {
@@ -46,6 +48,7 @@ export class ProfilePage {
         .subscribe(userProfile => {
           this.userProfile = userProfile;
           this.messageService.successToast(PROFILE_UPDATED_SUCCESS);
+          this.navController.back();
         });
     }
   }

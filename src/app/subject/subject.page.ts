@@ -5,6 +5,7 @@ import { IonItemSliding } from '@ionic/angular';
 import { Subject } from '../interfaces/subject.interface';
 import { SubjectService } from '../services/subject.service';
 import { Observable } from 'rxjs';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-subject',
@@ -15,16 +16,35 @@ import { Observable } from 'rxjs';
 export class SubjectPage {
   subjects$: Observable<Subject[]> = this.subjectService.subjects$;
 
-  constructor(private subjectService: SubjectService, private router: Router) {}
+  constructor(
+    private subjectService: SubjectService,
+    private router: Router,
+    private messageService: MessageService
+  ) {}
 
   ionViewWillEnter() {}
 
-  onEdit(subjectId: number, slidingItem: IonItemSliding) {
+  onDeleteSubject(subject: Subject, slidingItem: IonItemSliding) {
     slidingItem.close();
-    this.router.navigate(['/', 'subject', 'edit', subjectId]);
+    this.messageService.confirmation(
+      `Delete ${subject.name} Subject ?`,
+      this.confirmDelete.bind(this, subject.id)
+    );
   }
 
-  onDelete(subjectId: number, slidingItem: IonItemSliding) {
+  confirmDelete(subjectId: number) {
+    this.subjectService.deleteSubject(subjectId).subscribe(() => {
+      this.router.navigate(['/subject']);
+    });
+  }
+
+  onAddSubject() {
+    this.subjectService.setCurrentSubject(null);
+  }
+
+  onEditSubject(subject: Subject, slidingItem: IonItemSliding) {
     slidingItem.close();
+    this.subjectService.setCurrentSubject(subject);
+    this.router.navigate(['/', 'subject', 'edit', subject.id]);
   }
 }
