@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import * as Actions from '../../actions';
@@ -12,7 +12,8 @@ import { Subject } from '../../interfaces/subject.interface';
 @Component({
   selector: 'app-edit-subject',
   templateUrl: './edit-subject.page.html',
-  styleUrls: ['./edit-subject.page.scss']
+  styleUrls: ['./edit-subject.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditSubjectPage implements OnInit {
   subjectForm: FormGroup;
@@ -22,17 +23,16 @@ export class EditSubjectPage implements OnInit {
     private store: Store<Reducers.SubjectState>,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.store
       .select(Selectors.getCurrentSubject)
-      .subscribe((subject: Subject) => {
-        this.subject = subject;
-        if (this.subject) {
-          this.createForm(this.subject);
-        }
-      });
+      .subscribe(subject => (this.subject = subject));
+  }
+
+  ngOnInit() {
+    if (this.subject) {
+      this.createForm(this.subject);
+    }
   }
 
   createForm(subject: Subject): void {

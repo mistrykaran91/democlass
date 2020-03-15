@@ -16,7 +16,7 @@ import { HttpConfigInterceptor } from './services/http-config.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { UserProfileEffects, SubjectEffects } from './effects';
+import { UserProfileEffects, SubjectEffects , CourseEffects } from './effects';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -28,7 +28,7 @@ import { UserProfileEffects, SubjectEffects } from './effects';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
     StoreModule.forRoot(reducer),
-    EffectsModule.forRoot([UserProfileEffects, SubjectEffects])
+    EffectsModule.forRoot([UserProfileEffects, SubjectEffects,CourseEffects])
   ],
   providers: [
     StatusBar,
