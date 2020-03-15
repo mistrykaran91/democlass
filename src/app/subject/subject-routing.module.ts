@@ -14,7 +14,7 @@ const routes: Routes = [
       import('./edit-subject/edit-subject.module').then(
         m => m.EditSubjectPageModule
       ),
-      pathMatch:'full'
+    pathMatch: 'full'
   },
   {
     path: ':subjectId',

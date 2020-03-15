@@ -8,10 +8,9 @@ import { SubjectPageRoutingModule } from './subject-routing.module';
 
 import { SubjectPage } from './subject.page';
 import { SubjectSkeletonDetailComponent } from './skeleton/subject-detail/subject-skeleton-detail.component';
-import { SubjectItemPage } from './subject-item/subject-item.page';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, SubjectPageRoutingModule],
-  declarations: [SubjectPage, SubjectItemPage, SubjectSkeletonDetailComponent]
+  declarations: [SubjectPage, SubjectSkeletonDetailComponent]
 })
 export class SubjectPageModule {}

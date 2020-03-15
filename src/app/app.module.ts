@@ -16,7 +16,7 @@ import { HttpConfigInterceptor } from './services/http-config.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { UserProfileEffects } from './effects/user-profile.effect';
+import { UserProfileEffects, SubjectEffects } from './effects';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -26,9 +26,9 @@ import { UserProfileEffects } from './effects/user-profile.effect';
     IonicModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    InMemoryWebApiModule.forRoot(AppData, { delay: 2000 }),
+    InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
     StoreModule.forRoot(reducer),
-    EffectsModule.forRoot([UserProfileEffects])
+    EffectsModule.forRoot([UserProfileEffects, SubjectEffects])
   ],
   providers: [
     StatusBar,

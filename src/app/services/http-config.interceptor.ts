@@ -30,8 +30,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
       );
     }
 
-    if (requestedResourceType.toLowerCase() !== 'html') {
-      if (request.method === 'POST' || request.method === 'PUT') {
+    if (requestedResourceType.toLowerCase() !== 'html') {      
+      if (request.method === 'POST' || request.method === 'PUT' || request.method === 'DELETE' ) {
         this.pendingRequests.push(request.url);
         setTimeout(() => {
           this.messageService.presentLoading();

@@ -4,10 +4,59 @@
       <ion-back-button defaultHref="/subject"></ion-back-button>
     </ion-buttons>
     <ion-title>Edit Subject</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="save()">
+        <ion-icon name="checkmark" color="primary" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form *ngIf="subjectForm" [formGroup]="subjectForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="8" offset-sm="2">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">
+                {{ '' }}
+              </ion-card-title>
+            </ion-card-header>
 
-  
+            <ion-card-content>
+              <ion-img src="../../../assets/images/subject.jpg"></ion-img>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Code</ion-label>
+            <ion-input type="text" formControlName="code"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-input type="text" formControlName="description"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

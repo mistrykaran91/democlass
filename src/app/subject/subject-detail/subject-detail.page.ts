@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Subject } from '../../interfaces/subject.interface';
-import { Router } from '@angular/router';
-import { SubjectService } from '../../services/subject.service';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { MessageService } from '../../services/message.service';
+
+import { Subject } from '../../interfaces/subject.interface';
+import * as Actions from '../../actions';
+import * as Reducers from '../../reducers';
+import * as Selectors from '../../selectors/index';
 
 @Component({
   selector: 'app-subject-detail',
@@ -12,25 +14,15 @@ import { MessageService } from '../../services/message.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SubjectDetailPage implements OnInit {
-  subject$: Observable<Subject> = this.subjectService.currentSubject$;
+  subject$: Observable<Subject> = this.store.select(
+    Selectors.getCurrentSubject
+  );
 
-  constructor(
-    private subjectService: SubjectService,
-    private messageService: MessageService,
-    private router: Router) {}
+  constructor(private store: Store<Reducers.SubjectState>) {}
 
   ngOnInit() {}
 
   onDeleteSubject(subject: Subject) {
-    this.messageService.confirmation(
-      `Delete ${subject.name} Subject ?`,
-      this.confirmDelete.bind(this, subject.id)
-    );
-  }
-
-  confirmDelete(subjectId: number) {
-    this.subjectService.deleteSubject(subjectId).subscribe(() => {
-      this.router.navigate(['/subject']);
-    });
+    this.store.dispatch(Actions.showDeleteConfirmation({ subject }));
   }
 }

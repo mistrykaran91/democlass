@@ -8,14 +8,14 @@ export interface UserProfileState {
   userProfile: UserProfile;
 }
 
-export const initialState: UserProfileState = {
+const initialState: UserProfileState = {
   userProfile: null
 };
 
-const userProfileReducer = createReducer(
+const _userProfileReducer = createReducer(
   initialState,
   on(Actions.loadUserProfile, state => state),
-  on(Actions.loadUserProfileSuccess, (state, action) => ({
+  on(Actions.loadUserProfileSuccess, (state, action) => ({  
     ...state,
     userProfile: action.userProfile
   })),
@@ -28,6 +28,6 @@ const userProfileReducer = createReducer(
   on(Actions.updateUserProfileFailure, state => state)
 );
 
-export function reducer(state, action) {
-  return userProfileReducer(state, action);
+export function userProfileReducer(state, action) {
+  return _userProfileReducer(state, action);
 }

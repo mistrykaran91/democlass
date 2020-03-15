@@ -21,7 +21,7 @@ export class MessageService {
   async errorToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 1000,
       position: 'bottom',
       cssClass: 'toast-error-back'
     });
@@ -45,7 +45,7 @@ export class MessageService {
   async successToast(message: string) {
     const toast = await this.toastController.create({
       message: message,
-      duration: 2000,
+      duration: 1000,
       position: 'bottom',
       cssClass: `toast-success-back`
     });
@@ -74,8 +74,7 @@ export class MessageService {
         }
       ]
     });
-
-    await confirm.present();
+    return confirm;
   }
 
   async presentPopover(page: any, event: any) {
