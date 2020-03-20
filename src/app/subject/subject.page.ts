@@ -19,6 +19,9 @@ import { MessageService } from '../services/message.service';
 })
 export class SubjectPage implements OnInit {
   subjects$: Observable<Subject[]> = this.store.select(Selectors.getSubjects);
+  isSubjectEmpty$: Observable<boolean> = this.store.select(
+    Selectors.getIsSubjectEmpty
+  );  
 
   constructor(
     private store: Store<Reducers.SubjectState>,

@@ -7,10 +7,20 @@ export const subjectFeature = createFeatureSelector<SubjectState>(
 
 export const getSubjects = createSelector(
   subjectFeature,
-  state => state.subjects
+  state => state && state.subjects
 );
 
 export const getCurrentSubject = createSelector(
   subjectFeature,
-  state => state.currentSubject
+  state => state && state.currentSubject
+);
+
+export const getSubject = createSelector(getSubjects, (subjects, props) => {
+  const { subjectId } = props;
+  return subjects.find(r => r.id === +subjectId);
+});
+
+export const getIsSubjectEmpty = createSelector(
+  getSubjects,
+  subjects => subjects && subjects.length === 0
 );

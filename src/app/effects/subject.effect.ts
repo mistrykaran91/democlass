@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MessageService } from '../services/message.service';
 import * as SubjectActions from '../actions/subject.actions';
-import { concatMap, map, exhaustMap, switchMap, tap } from 'rxjs/operators';
+import * as Selectors from '../selectors';
+import * as Reducers from '../reducers';
+import { concatMap, map, tap, withLatestFrom } from 'rxjs/operators';
 import { Subject } from '../interfaces/subject.interface';
-import { from, of, empty } from 'rxjs';
-import { AlertController } from '@ionic/angular';
+
 import { SUBJECT_UPDATED } from '../app.constant';
+import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +22,31 @@ export class SubjectEffects {
   loadSubject$ = createEffect(() =>
     this.actions$.pipe(
       ofType(SubjectActions.loadSubject),
-      concatMap(action => {
+      concatMap(_ => {
         return this.http
           .get<Subject[]>(`${this.subjectUrl}`)
           .pipe(
             map(subjects => SubjectActions.loadSubjectSuccess({ subjects }))
+          );
+      })
+    )
+  );
+
+  loadSubjectById$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(SubjectActions.loadSubjectById),
+      withLatestFrom(this.store.select(Selectors.getCurrentSubject)),
+      concatMap(([action, currentSubject]) => {
+        if (currentSubject) {
+          return [];
+        }
+
+        const { subjectId } = action;
+
+        return this.http
+          .get<Subject>(`${this.subjectUrl}/${subjectId}`)
+          .pipe(
+            map(subject => SubjectActions.loadSubjectByIdSuccess({ subject }))
           );
       })
     )
@@ -107,6 +129,7 @@ export class SubjectEffects {
     private actions$: Actions,
     private http: HttpClient,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private store: Store<Reducers.SubjectState>
   ) {}
 }

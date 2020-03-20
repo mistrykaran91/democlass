@@ -13,6 +13,21 @@ export const loadSubjectFailure = createAction(
   props<{ error: any }>()
 );
 
+export const loadSubjectById = createAction(
+  '[Subject] Load Subject By Id',
+  props<{ subjectId: number }>()
+);
+
+export const loadSubjectByIdSuccess = createAction(
+  '[Subject] Load Subject Success By Id',
+  props<{ subject: Subject }>()
+);
+
+export const loadSubjectByIdFailure = createAction(
+  '[Subject] Load Subject Failure By Id',
+  props<{ error: any }>()
+);
+
 export const setCurrentSubject = createAction(
   '[Subject] Set Current Subject',
   props<{ subject: Subject }>()

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -18,9 +19,15 @@ export class SubjectDetailPage implements OnInit {
     Selectors.getCurrentSubject
   );
 
-  constructor(private store: Store<Reducers.SubjectState>) {}
+  constructor(
+    private store: Store<Reducers.SubjectState>,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const subjectId = +this.activatedRoute.snapshot.paramMap.get('subjectId');
+    this.store.dispatch(Actions.loadSubjectById({ subjectId }));
+  }
 
   onDeleteSubject(subject: Subject) {
     this.store.dispatch(Actions.showDeleteConfirmation({ subject }));

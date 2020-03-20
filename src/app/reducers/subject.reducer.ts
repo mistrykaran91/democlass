@@ -19,7 +19,7 @@ export interface SubjectState {
 
 export const subjectState: SubjectState = {
   subjects: null,
-  currentSubject: initializeSubject
+  currentSubject: null
 };
 
 const _subjectReducer = createReducer(
@@ -29,6 +29,14 @@ const _subjectReducer = createReducer(
     return {
       ...state,
       subjects: action.subjects
+    };
+  }),
+  on(SubjectActions.loadSubjectById, state => state),
+  on(SubjectActions.loadSubjectByIdSuccess, (state, action) => {
+    return {
+      ...state,
+      currentSubject:
+        action && action.subject ? action.subject : initializeSubject
     };
   }),
 

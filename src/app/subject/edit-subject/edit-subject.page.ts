@@ -24,6 +24,9 @@ export class EditSubjectPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {
+    const subjectId = +this.activatedRoute.snapshot.paramMap.get("subjectId");
+    this.store.dispatch(Actions.loadSubjectById({ subjectId  }));
+
     this.store
       .select(Selectors.getCurrentSubject)
       .subscribe(subject => (this.subject = subject));
