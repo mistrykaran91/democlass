@@ -16,4 +16,6 @@ export class CourseDetailPage {
   onBack() {
     this.back.emit();
   }
+
+  onDeleteCourse() {}
 }

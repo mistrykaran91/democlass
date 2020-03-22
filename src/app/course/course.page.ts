@@ -8,7 +8,6 @@ import { Course } from '../models/course.model';
 import { Observable } from 'rxjs';
 import { View } from '../enums/view.enum';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-course',
@@ -25,26 +24,20 @@ export class CoursePage {
   View = View;
 
   constructor(
-    private store: Store<Reducers.CourseState>,
-    private navController: NavController,
-    private router: Router
+    private store: Store<Reducers.CourseState>
   ) {}
 
   ngOnInit(): void {
-    debugger;
-    this.store.dispatch(Actions.loadCourses());
+    
   }
 
   onCourseSelected(course: Course) {
-    debugger;
-    this.store.dispatch(Actions.setCurrentCourse({ course }));
-    this.store.dispatch(Actions.setCurrentView({ view: View.Detail }));
-    this.navController.navigateForward(`/course/detail`);
-    this.router.navigate([]);
+    
   }
 
-  onBack() {
-    this.store.dispatch(Actions.setCurrentView({ view: View.List }));
-    this.navController.navigateBack(`/course/detail`);
-  }
+  onEditCourse(course: Course) {}
+
+  onDeleteCourse(course: Course) {}
+
+  onBack(event:any) {}
 }

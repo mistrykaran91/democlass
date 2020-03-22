@@ -79,6 +79,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./schedule/schedule.module').then(m => m.SchedulePageModule),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'university',
+    loadChildren: () =>
+      import('./university/university.module').then(m => m.UniversityPageModule)
   }
 ];
 

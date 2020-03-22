@@ -1,13 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import * as Actions from '../../actions';
-import * as Reducers from '../../reducers';
-import * as Selectors from '../../selectors/';
+import * as Actions from '@app/actions';
+import * as Reducers from '@app/reducers';
+import * as Selectors from '@app/selectors';
 import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { tap, map } from 'rxjs/operators';
-import { Subject } from '../../interfaces/subject.interface';
+import { Subject } from '@interfaces/subject.interface';
 
 @Component({
   selector: 'app-edit-subject',

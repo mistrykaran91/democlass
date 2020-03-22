@@ -5,9 +5,9 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { UserProfile } from '../../interfaces/user-profile.interface';
-import { Gender } from 'src/app/enums/gender.enum';
 import { FormGroup } from '@angular/forms';
-import { MORE_INFO, LESS_INFO } from 'src/app/app.constant';
+import { MORE_INFO, LESS_INFO } from '@app/app.constant';
+import { Gender } from '@enums/gender.enum';
 
 @Component({
   selector: 'profile-edit',

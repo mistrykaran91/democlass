@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { subjectFeatureKey, SubjectState } from '../reducers/subject.reducer';
+import { subjectFeatureKey, SubjectState } from '@app/reducers';
 
 export const subjectFeature = createFeatureSelector<SubjectState>(
   subjectFeatureKey

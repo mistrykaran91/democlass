@@ -1,6 +1,6 @@
-import { Subject } from './../interfaces/subject.interface';
+import { Subject } from '@interfaces/subject.interface';
 import { createReducer, on } from '@ngrx/store';
-import * as SubjectActions from '../actions/subject.actions';
+import * as SubjectActions from '@app/actions';
 
 export const subjectFeatureKey = 'subject';
 

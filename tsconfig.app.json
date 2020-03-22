@@ -2,13 +2,18 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@interfaces/*":["app/interfaces/*"],
+      "@models/*": ["app/models/*"],
+      "@helpers/*": ["app/helpers/*"],
+      "@types/*": ["app/types/*"],
+      "@enums/*": ["app/enums/*"],
+      "@services/*" :["app/services/*"]
+    }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/test.ts", "src/**/*.spec.ts"]
 }

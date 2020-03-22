@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MessageService } from '../services/message.service';
-import * as SubjectActions from '../actions/subject.actions';
-import * as Selectors from '../selectors';
-import * as Reducers from '../reducers';
+import { MessageService } from '@services/message.service';
+import * as SubjectActions from '@app/actions';
+import * as Selectors from '@app/selectors';
+import * as Reducers from '@app/reducers';
 import { concatMap, map, tap, withLatestFrom } from 'rxjs/operators';
 import { Subject } from '../interfaces/subject.interface';
 

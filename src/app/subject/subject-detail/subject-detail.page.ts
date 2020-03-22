@@ -1,12 +1,13 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Subject } from '../../interfaces/subject.interface';
-import * as Actions from '../../actions';
-import * as Reducers from '../../reducers';
-import * as Selectors from '../../selectors/index';
+import { Subject } from '@interfaces/subject.interface';
+
+import * as Selectors from '@app/selectors';
+import * as Reducers from '@app/reducers';
+import * as Actions from '@app/actions';
 
 @Component({
   selector: 'app-subject-detail',
