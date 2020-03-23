@@ -11,7 +11,8 @@
       "@helpers/*": ["app/helpers/*"],
       "@types/*": ["app/types/*"],
       "@enums/*": ["app/enums/*"],
-      "@services/*" :["app/services/*"]
+      "@services/*" :["app/services/*"],
+      "@shared/*" :["app/shared/*"]
     }
   },
   "include": ["src/**/*.ts"],
