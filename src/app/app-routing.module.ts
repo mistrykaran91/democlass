@@ -61,6 +61,14 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
+    path: 'incomeHeader',
+    loadChildren: () =>
+      import('./income-header/income-header.module').then(
+        m => m.IncomeHeaderPageModule
+      ),
+    canLoad: [AuthGuard]
+  },
+  {
     path: 'notification',
     loadChildren: () =>
       import('./notification/notification.module').then(

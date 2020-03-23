@@ -22,7 +22,8 @@ import {
   CourseEffects,
   UniversityEffects,
   LeadSourceEffects,
-  ExpenseHeaderEffects
+  ExpenseHeaderEffects,
+  IncomeHeaderEffects
 } from './effects';
 
 @NgModule({
@@ -41,7 +42,8 @@ import {
       CourseEffects,
       UniversityEffects,
       LeadSourceEffects,
-      ExpenseHeaderEffects
+      ExpenseHeaderEffects,
+      IncomeHeaderEffects
     ])
   ],
   providers: [

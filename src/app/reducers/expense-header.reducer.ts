@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as ExpenseHeaderActions from '@app/actions';
 import { ExpenseHeader } from '@interfaces/expense-header.interface';
+import { Status } from '@enums/status.enum';
 
 export const expenseHeaderFeatureKey = 'expenseHeader';
 

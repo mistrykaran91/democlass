@@ -4,3 +4,4 @@ export * from './course.selectors';
 export * from './university.selectors';
 export * from './lead-source.selectors';
 export * from './expense-header.selectors';
+export * from './income-header.selectors';

@@ -13,7 +13,7 @@ export class MenuPage implements OnInit {
         {
           title: 'My Courses',
           url: '/course',
-          icon: 'book'
+          icon: 'school'          
         },
         {
           title: 'Subjects',
@@ -23,17 +23,22 @@ export class MenuPage implements OnInit {
         {
           title: 'Lead Source',
           url: '/leadSource',
-          icon: 'document-text'
+          icon: 'bookmark'
         },
         {
           title: 'Expense Header',
           url: '/expenseHeader',
-          icon: 'document-text'
+          icon: 'pricetag'
         },
+        {
+          title: 'Income Header',
+          url: '/incomeHeader',
+          icon: 'cash'
+        },        
         {
           title: 'University',
           url: '/university',
-          icon: 'document-text'
+          icon: 'library'
         },
         {
           title: 'Schedule',

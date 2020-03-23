@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>IncomeHeader</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onAddIncomeHeader()">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="12"
+        size-sm="8"
+        offset-sm="2"
+        *ngIf="isIncomeHeaderEmpty$ | async"
+      >
+        <p class="ion-text-center">
+          No IncomeHeaders Found !!!
+        </p>
+      </ion-col>
+      <ion-col
+        size="12"
+        size-sm="8"
+        offset-sm="2"
+        *ngIf="(isIncomeHeaderEmpty$ | async) === false"
+      >
+        <ion-list>
+          <ion-item-sliding
+            *ngFor="let incomeHeader of incomeHeaders$ | async"
+            #slidingItem
+          >
+            <ion-item detail (click)="onIncomeHeaderSelected(incomeHeader)">
+              <ion-thumbnail slot="start">
+                <ion-img src="../../assets/images/university.jpg"></ion-img>
+              </ion-thumbnail>
+              <ion-label class="ion-justify-content-start">
+                <h2>{{ incomeHeader.name }}</h2>
+                <p>
+                  DisplayOrder : {{ incomeHeader.displayOrder }}
+                </p>                
+              </ion-label>
+            </ion-item>
+
+            <ion-item-options side="end">
+              <ion-item-option
+                color="medium"
+                (click)="onEditIncomeHeader(incomeHeader, slidingItem)"
+              >
+                <ion-icon name="create" slot="icon-only"></ion-icon>
+              </ion-item-option>
+
+              <ion-item-option
+                color="medium"
+                (click)="onDeleteIncomeHeader(incomeHeader, slidingItem)"
+              >
+                <ion-icon name="trash" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+
+      <ion-col
+        size="12"
+        size-sm="8"
+        offset-sm="2"
+        *ngIf="(incomeHeaders$ | async) === null"
+      >
+        <app-list-skeleton></app-list-skeleton>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

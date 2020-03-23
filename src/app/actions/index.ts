@@ -4,3 +4,4 @@ export * from './course.actions';
 export * from './university.actions';
 export * from './lead-source.actions';
 export * from './expense-header.actions';
+export * from './income-header.actions';

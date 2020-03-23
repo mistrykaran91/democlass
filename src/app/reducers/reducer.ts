@@ -1,24 +1,21 @@
-import * as fromUserProfile from './user-profile.reducer';
-import * as fromSubject from './subject.reducer';
-import * as fromCourse from './course.reducer';
-import * as fromUniversity from './university.reducer';
-import * as fromLeadSource from './lead-source.reducer';
-import * as fromExpenseHeader from './expense-header.reducer';
+import * as Reducers from '@app/reducers';
 
 export interface AppState {
-  userProfile: fromUserProfile.UserProfileState;
-  subject: fromSubject.SubjectState;
-  course: fromCourse.CourseState;
-  university: fromUniversity.UniversityState;
-  leadSource: fromLeadSource.LeadSourceState;
-  expenseHeader: fromExpenseHeader.ExpenseHeaderState;
+  userProfile: Reducers.UserProfileState;
+  subject: Reducers.SubjectState;
+  course: Reducers.CourseState;
+  university: Reducers.UniversityState;
+  leadSource: Reducers.LeadSourceState;
+  expenseHeader: Reducers.ExpenseHeaderState;
+  incomeHeader: Reducers.IncomeHeaderState;
 }
 
 export const reducer = {
-  userProfile: fromUserProfile.userProfileReducer,
-  subject: fromSubject.subjectReducer,
-  course: fromCourse.courseReducer,
-  university: fromUniversity.universityReducer,
-  leadSource: fromLeadSource.leadSourceReducer,
-  expenseHeader: fromExpenseHeader.expenseHeaderReducer
+  userProfile: Reducers.userProfileReducer,
+  subject: Reducers.subjectReducer,
+  course: Reducers.courseReducer,
+  university: Reducers.universityReducer,
+  leadSource: Reducers.leadSourceReducer,
+  expenseHeader: Reducers.expenseHeaderReducer,
+  incomeHeader: Reducers.incomeHeaderReducer
 };
