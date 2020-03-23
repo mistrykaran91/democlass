@@ -1,88 +1,88 @@
 import { createAction, props } from '@ngrx/store';
 import { LeadSource } from '@interfaces/lead-source.interface';
 
-export const loadLeadSource = createAction('[LeadSource] Load LeadSource');
+export const loadLeadSource = createAction('[Lead Source] Load Lead Source');
 
 export const loadLeadSourceSuccess = createAction(
-  '[LeadSource] Load LeadSource Success',
+  '[Lead Source] Load Lead Source Success',
   props<{ leadSources: Array<LeadSource> }>()
 );
 
 export const loadLeadSourceFailure = createAction(
-  '[LeadSource] Load LeadSource Failure',
+  '[Lead Source] Load Lead Source Failure',
   props<{ error: any }>()
 );
 
 export const loadLeadSourceById = createAction(
-  '[LeadSource] Load LeadSource By Id',
+  '[Lead Source] Load Lead Source By Id',
   props<{ leadSourceId: number }>()
 );
 
 export const loadLeadSourceByIdSuccess = createAction(
-  '[LeadSource] Load LeadSource Success By Id',
+  '[Lead Source] Load Lead Source Success By Id',
   props<{ leadSource: LeadSource }>()
 );
 
 export const loadLeadSourceByIdFailure = createAction(
-  '[LeadSource] Load LeadSource Failure By Id',
+  '[Lead Source] Load Lead Source Failure By Id',
   props<{ error: any }>()
 );
 
 export const setCurrentLeadSource = createAction(
-  '[LeadSource] Set Current LeadSource',
+  '[Lead Source] Set Current Lead Source',
   props<{ leadSource: LeadSource }>()
 );
 
 export const createLeadSource = createAction(
-  '[LeadSource] Create LeadSource',
+  '[Lead Source] Create Lead Source',
   props<{ leadSource: LeadSource }>()
 );
 
 export const createLeadSourceSuccess = createAction(
-  '[LeadSource] Create LeadSource Success',
+  '[Lead Source] Create Lead Source Success',
   props<{ leadSource: LeadSource }>()
 );
 
 export const createLeadSourceFailure = createAction(
-  '[LeadSource] Create LeadSource Failure',
+  '[Lead Source] Create Lead Source Failure',
   props<{ error: any }>()
 );
 
 export const updateLeadSource = createAction(
-  '[LeadSource] Update LeadSource',
+  '[Lead Source] Update Lead Source',
   props<{ leadSource: LeadSource }>()
 );
 
 export const updateLeadSourceSuccess = createAction(
-  '[LeadSource] Update LeadSource Success',
+  '[Lead Source] Update Lead Source Success',
   props<{ leadSource: LeadSource }>()
 );
 
 export const updateLeadSourceFailure = createAction(
-  '[LeadSource] Update LeadSource Failure',
+  '[Lead Source] Update Lead Source Failure',
   props<{ error: any }>()
 );
 
 export const showLeadSourceDeleteConfirmation = createAction(
-  '[LeadSource] Show LeadSource Delete Confirmation',
+  '[Lead Source] Show Lead Source Delete Confirmation',
   props<{ leadSource: LeadSource }>()
 );
 
 export const deleteLeadSource = createAction(
-  '[LeadSource] Delete LeadSource',
+  '[Lead Source] Delete Lead Source',
   props<{ leadSourceId: number }>()
 );
 
 export const deleteLeadSourceRevert = createAction(
-  '[LeadSource] Delete LeadSource Revert'
+  '[Lead Source] Delete Lead Source Revert'
 );
 
 export const deleteLeadSourceSuccess = createAction(
-  '[LeadSource] Delete LeadSource Success',
+  '[Lead Source] Delete Lead Source Success',
   props<{ leadSourceId: number }>()
 );
 
 export const deleteLeadSourceFailure = createAction(
-  '[LeadSource] Delete LeadSource Failure',
+  '[Lead Source] Delete Lead Source Failure',
   props<{ error: any }>()
 );
