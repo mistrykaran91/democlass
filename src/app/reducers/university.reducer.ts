@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as UniversityActions from '@app/actions';
 import { University } from '@interfaces/university.interface';
+import { Status } from '@enums/status.enum';
 
 export const universityFeatureKey = 'university';
 
@@ -8,7 +9,7 @@ const initializeUniversity: University = {
   id: 0,
   name: null,
   displayOrder: null,
-  status: null,
+  status: Status.Active,
   avatar: null
 };
 

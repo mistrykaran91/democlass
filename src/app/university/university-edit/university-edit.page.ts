@@ -7,6 +7,7 @@ import * as Actions from '@app/actions';
 import * as Reducers from '@app/reducers';
 import * as Selectors from '@app/selectors';
 import { University } from '@interfaces/university.interface';
+import { Status } from '@enums/status.enum';
 
 @Component({
   selector: 'app-university-edit',
@@ -17,6 +18,7 @@ import { University } from '@interfaces/university.interface';
 export class UniversityEditPage implements OnInit {
   universityForm: FormGroup;
   university: University;
+  Status = Status;
 
   constructor(
     private store: Store<Reducers.UniversityState>,

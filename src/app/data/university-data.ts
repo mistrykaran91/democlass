@@ -1,4 +1,5 @@
 import { University } from '@interfaces/university.interface';
+import { Status } from '@enums/status.enum';
 
 export class UniversityData {
   static universities : University[] = [
@@ -6,7 +7,7 @@ export class UniversityData {
       id: 1,
       name: 'Mumbai',
       displayOrder: 1,
-      status: 'Active',
+      status: Status.Active,
       avatar: null
     }
   ];

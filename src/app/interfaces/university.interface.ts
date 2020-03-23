@@ -1,7 +1,9 @@
+import { Status } from '@enums/status.enum';
+
 export interface University {
   id: number;
   name: string;
   displayOrder: number;
-  status: string;
-  avatar: string;
+  status: Status;
+  avatar: any;
 }
