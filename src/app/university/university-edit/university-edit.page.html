@@ -52,12 +52,7 @@
           <ion-item lines="full">
             <ion-label position="floating">Status</ion-label>
             <ion-select formControlName="status">
-              <ion-select-option value="">
-                {{ defaultOption }}
-              </ion-select-option>
-              <ion-select-option [value]="item.id" *ngFor="">
-                {{ item?.name }}
-              </ion-select-option>
+              <ion-select-option value="">{{ '' }}</ion-select-option>              
             </ion-select>
           </ion-item>
         </ion-col>
