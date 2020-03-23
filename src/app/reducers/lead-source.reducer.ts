@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as LeadSourceActions from '@app/actions';
 import { LeadSource } from '@interfaces/lead-source.interface';
+import { Status } from '@enums/status.enum';
 
 export const leadSourceFeatureKey = 'leadSource';
 
@@ -8,7 +9,7 @@ const initializeLeadSource: LeadSource = {
   id: 0,
   name: null,
   displayOrder: null,
-  status: null
+  status: Status.Active
 };
 
 export interface LeadSourceState {

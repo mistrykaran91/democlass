@@ -3,6 +3,7 @@ import * as fromSubject from './subject.reducer';
 import * as fromCourse from './course.reducer';
 import * as fromUniversity from './university.reducer';
 import * as fromLeadSource from './lead-source.reducer';
+import * as fromExpenseHeader from './expense-header.reducer';
 
 export interface AppState {
   userProfile: fromUserProfile.UserProfileState;
@@ -10,6 +11,7 @@ export interface AppState {
   course: fromCourse.CourseState;
   university: fromUniversity.UniversityState;
   leadSource: fromLeadSource.LeadSourceState;
+  expenseHeader: fromExpenseHeader.ExpenseHeaderState;
 }
 
 export const reducer = {
@@ -17,5 +19,6 @@ export const reducer = {
   subject: fromSubject.subjectReducer,
   course: fromCourse.courseReducer,
   university: fromUniversity.universityReducer,
-  leadSource: fromLeadSource.leadSourceReducer
+  leadSource: fromLeadSource.leadSourceReducer,
+  expenseHeader: fromExpenseHeader.expenseHeaderReducer
 };

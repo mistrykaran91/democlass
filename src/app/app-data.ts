@@ -4,6 +4,7 @@ import { CourseData } from './data/course-data';
 import { SubjectData } from './data/subject-data';
 import { UniversityData } from './data/university-data';
 import { LeadSourcesData } from './data/lead-source-data';
+import { ExpenseHeadersData } from './data/expense-header-data';
 
 export class AppData implements InMemoryDbService {
   createDb() {
@@ -12,12 +13,14 @@ export class AppData implements InMemoryDbService {
     const subjects = SubjectData.subjects;
     const universities = UniversityData.universities;
     const leadSources = LeadSourcesData.leadSources;
+    const expenseHeaders = ExpenseHeadersData.expenseHeaders;
     return {
       userProfiles,
       courses,
       subjects,
       universities,
-      leadSources
+      leadSources,
+      expenseHeaders
     };
   }
 }

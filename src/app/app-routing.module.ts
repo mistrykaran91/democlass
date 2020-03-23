@@ -53,10 +53,10 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
-    path: 'examination',
+    path: 'expenseHeader',
     loadChildren: () =>
-      import('./examination/examination.module').then(
-        m => m.ExaminationPageModule
+      import('./expense-header/expense-header.module').then(
+        m => m.ExpenseHeaderPageModule
       ),
     canLoad: [AuthGuard]
   },

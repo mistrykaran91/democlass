@@ -21,7 +21,8 @@ import {
   SubjectEffects,
   CourseEffects,
   UniversityEffects,
-  LeadSourceEffects
+  LeadSourceEffects,
+  ExpenseHeaderEffects
 } from './effects';
 
 @NgModule({
@@ -39,7 +40,8 @@ import {
       SubjectEffects,
       CourseEffects,
       UniversityEffects,
-      LeadSourceEffects
+      LeadSourceEffects,
+      ExpenseHeaderEffects
     ])
   ],
   providers: [

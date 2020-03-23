@@ -26,6 +26,11 @@ export class MenuPage implements OnInit {
           icon: 'document-text'
         },
         {
+          title: 'Expense Header',
+          url: '/expenseHeader',
+          icon: 'document-text'
+        },
+        {
           title: 'University',
           url: '/university',
           icon: 'document-text'
