@@ -83,7 +83,10 @@ const routes: Routes = [
   {
     path: 'university',
     loadChildren: () =>
-      import('./university/university.module').then(m => m.UniversityPageModule)
+      import('./university/university.module').then(
+        m => m.UniversityPageModule
+      ),
+    canLoad: [AuthGuard]
   }
 ];
 

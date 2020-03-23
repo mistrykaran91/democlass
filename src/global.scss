@@ -28,3 +28,12 @@
 ion-toolbar {
   color: var(--ion-color-primary);
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-auto {
+  flex: auto;
+}

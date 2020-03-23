@@ -46,8 +46,8 @@
                 <p>
                   {{ subject.description }}
                 </p>
-                <p style="display: flex; flex-direction:row">
-                  <ion-note slot="start" style="flex: auto;"
+                <p class="flex-row">
+                  <ion-note slot="start" class="flex-auto"
                     >{{ subject.code }}</ion-note
                   >
                 </p>
@@ -74,12 +74,12 @@
       </ion-col>
 
       <ion-col
-      size="12"
-      size-sm="8"
-      offset-sm="2"
-      *ngIf="(subjects$ | async) === null">
-      <app-subject-skeleton-detail >
-        </app-subject-skeleton-detail>
+        size="12"
+        size-sm="8"
+        offset-sm="2"
+        *ngIf="(subjects$ | async) === null"
+      >
+        <app-subject-skeleton-detail> </app-subject-skeleton-detail>
       </ion-col>
     </ion-row>
   </ion-grid>
