@@ -18,7 +18,7 @@ import { University } from '@interfaces/university.interface';
 })
 export class UniversityPage implements OnInit {
   universities$: Observable<Array<University>> = this.store.select(
-    Selectors.getUniversitys
+    Selectors.getUniversities
   );
   isUniversityEmpty$: Observable<boolean> = this.store.select(
     Selectors.getIsUniversityEmpty

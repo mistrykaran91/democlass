@@ -53,7 +53,9 @@ const UniversityReducer = createReducer(
   on(UniversityActions.createUniversitySuccess, (state, action) => {
     return {
       ...state,
-      universities: [...state.universities, action.university]
+      universities: state.universities
+        ? [...state.universities, action.university]
+        : [action.university]
     };
   }),
   on(UniversityActions.createUniversityFailure, state => state),

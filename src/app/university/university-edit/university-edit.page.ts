@@ -65,4 +65,11 @@ export class UniversityEditPage implements OnInit {
       this.store.dispatch(Actions.updateUniversity({ university }));
     }
   }
+
+  get title() {
+    if (!this.university || !this.university.id) {
+      return 'Add University';
+    }
+    return 'Edit University';
+  }
 }

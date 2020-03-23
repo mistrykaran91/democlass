@@ -9,6 +9,7 @@ import * as Reducers from '@app/reducers';
 import { concatMap, map, tap, withLatestFrom } from 'rxjs/operators';
 import { University } from '@interfaces/university.interface';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,12 @@ export class UniversityEffects {
 
         const { universityId } = action;
 
+        if (!universityId) {
+          return of(
+            UniversityActions.setCurrentUniversity({ university: null })
+          );
+        }
+
         return this.http
           .get<University>(`${this.universityUrl}/${universityId}`)
           .pipe(
@@ -56,9 +63,9 @@ export class UniversityEffects {
   createUniversity$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UniversityActions.createUniversity),
-      concatMap(action => {
-        const university = { ...action.university };
-        delete university.id;
+      withLatestFrom(this.store.select(Selectors.getGenId)),
+      concatMap(([action, genId]) => {
+        const university = { ...action.university, id: genId };
 
         return this.http
           .post<University>(`${this.universityUrl}`, university)
