@@ -7,7 +7,7 @@ import {
   HttpResponse,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
@@ -63,7 +63,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         // debugger;
         this.pendingRequests = [];
         this.messageService.dismissLoader();
-        return Observable.throw(err.json ? err.json() : err);
+        return throwError(err.json ? err.json() : err);
       })
     );
   }
