@@ -1,0 +1,54 @@
+<ng-container *ngIf="university$ | async as university">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/university"></ion-back-button>
+      </ion-buttons>
+      <ion-title>University Detail</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button [routerLink]=" ['/','university', university.id, 'edit']">
+          <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="onDeleteUniversity(university)">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2">
+          <ion-list>
+            <ion-item lines="full" class="ion-no-padding">
+              <div class="img-center">
+                <ion-img src="../../assets/images/university.jpg"></ion-img>
+              </div>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-label class="ion-margin-horizontal">Name</ion-label>
+              <ion-label class="ion-text-wrap">{{university.name}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <ion-label class="ion-margin-horizontal">DisplayOrder</ion-label>
+              <ion-label class="ion-text-wrap">
+                {{university.displayOrder}}
+              </ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <ion-label class="ion-margin-horizontal">Status</ion-label>
+              <ion-label class="ion-text-wrap">{{university.status}}</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+              <ion-label class="ion-margin-horizontal">Avatar</ion-label>
+              <ion-label class="ion-text-wrap">{{university.avatar}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ng-container>
