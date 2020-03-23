@@ -16,7 +16,12 @@ import { HttpConfigInterceptor } from './services/http-config.interceptor';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { UserProfileEffects, SubjectEffects , CourseEffects } from './effects';
+import {
+  UserProfileEffects,
+  SubjectEffects,
+  CourseEffects,
+  UniversityEffects
+} from './effects';
 
 @NgModule({
   declarations: [AppComponent, MenuPage],
@@ -28,7 +33,12 @@ import { UserProfileEffects, SubjectEffects , CourseEffects } from './effects';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
     StoreModule.forRoot(reducer),
-    EffectsModule.forRoot([UserProfileEffects, SubjectEffects,CourseEffects])
+    EffectsModule.forRoot([
+      UserProfileEffects,
+      SubjectEffects,
+      CourseEffects,
+      UniversityEffects
+    ])
   ],
   providers: [
     StatusBar,

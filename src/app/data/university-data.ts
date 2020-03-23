@@ -1,4 +1,4 @@
-import { University } from '@app/interfaces/university-interface';
+import { University } from '@interfaces/university.interface';
 
 export class UniversityData {
   static universities : University[] = [
