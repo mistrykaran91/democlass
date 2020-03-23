@@ -21,8 +21,8 @@ export class MenuPage implements OnInit {
           icon: 'book'
         },
         {
-          title: 'Examinations',
-          url: '/examination',
+          title: 'Lead Source',
+          url: '/leadSource',
           icon: 'document-text'
         },
         {

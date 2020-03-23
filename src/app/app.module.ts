@@ -20,7 +20,8 @@ import {
   UserProfileEffects,
   SubjectEffects,
   CourseEffects,
-  UniversityEffects
+  UniversityEffects,
+  LeadSourceEffects
 } from './effects';
 
 @NgModule({
@@ -37,7 +38,8 @@ import {
       UserProfileEffects,
       SubjectEffects,
       CourseEffects,
-      UniversityEffects
+      UniversityEffects,
+      LeadSourceEffects
     ])
   ],
   providers: [

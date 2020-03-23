@@ -28,7 +28,7 @@ export const getIsUniversityEmpty = createSelector(
   universities => universities && universities.length === 0
 );
 
-export const getGenId = createSelector(
+export const getUniversityGenId = createSelector(
   getUniversities,
   universities => {
     return !universities || universities.length === 0

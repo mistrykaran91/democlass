@@ -87,6 +87,14 @@ const routes: Routes = [
         m => m.UniversityPageModule
       ),
     canLoad: [AuthGuard]
+  },
+  {
+    path: 'leadSource',
+    loadChildren: () =>
+      import('./lead-source/lead-source.module').then(
+        m => m.LeadSourcePageModule
+      ),
+    canLoad: [AuthGuard]
   }
 ];
 

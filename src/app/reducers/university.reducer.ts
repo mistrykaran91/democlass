@@ -23,7 +23,7 @@ export const UniversityState: UniversityState = {
   currentUniversity: null
 };
 
-const UniversityReducer = createReducer(
+const _universityReducer = createReducer(
   UniversityState,
   on(UniversityActions.loadUniversity, state => state),
   on(UniversityActions.loadUniversitySuccess, (state, action) => {
@@ -81,6 +81,6 @@ const UniversityReducer = createReducer(
   on(UniversityActions.deleteUniversityFailure, state => state)
 );
 
-export function reducer(state, action) {
-  return UniversityReducer(state, action);
+export function universityReducer(state, action) {
+  return _universityReducer(state, action);
 }

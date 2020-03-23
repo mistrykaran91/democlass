@@ -63,7 +63,7 @@ export class UniversityEffects {
   createUniversity$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UniversityActions.createUniversity),
-      withLatestFrom(this.store.select(Selectors.getGenId)),
+      withLatestFrom(this.store.select(Selectors.getUniversityGenId)),
       concatMap(([action, genId]) => {
         const university = { ...action.university, id: genId };
 
